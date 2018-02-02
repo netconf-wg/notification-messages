@@ -897,7 +897,7 @@ module ietf-notification-messages {
         
       </list></t>
 
-      <t>Providing this type of functionality would necessitate a new revision of the <xref target="subscribe"/>'s RPCs and state change notifications.  Subscription specific header information would overwrite the default headers identified in this document.</t> 
+      <t>Providing this type of functionality would necessitate a new revision of the <xref target="I-D.draft-ietf-netconf-subscribed-notifications"/>'s RPCs and state change notifications.  Subscription specific header information would overwrite the default headers identified in this document.</t> 
 
     </section>
     
