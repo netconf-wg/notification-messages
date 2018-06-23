@@ -1,0 +1,52 @@
+[
+
+  {
+    "url": "https://api.github.com/repos/netconf-wg/notification-messages/issues/1",
+    "repository_url": "https://api.github.com/repos/netconf-wg/notification-messages",
+    "labels_url": "https://api.github.com/repos/netconf-wg/notification-messages/issues/1/labels{/name}",
+    "comments_url": "https://api.github.com/repos/netconf-wg/notification-messages/issues/1/comments",
+    "events_url": "https://api.github.com/repos/netconf-wg/notification-messages/issues/1/events",
+    "html_url": "https://github.com/netconf-wg/notification-messages/issues/1",
+    "id": 334138715,
+    "node_id": "MDU6SXNzdWUzMzQxMzg3MTU=",
+    "number": 1,
+    "title": "Support just YANG notifications, or also existing RFC-5277 one-way notifications",
+    "user": {
+      "login": "ericvoit",
+      "id": 14643104,
+      "node_id": "MDQ6VXNlcjE0NjQzMTA0",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/14643104?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ericvoit",
+      "html_url": "https://github.com/ericvoit",
+      "followers_url": "https://api.github.com/users/ericvoit/followers",
+      "following_url": "https://api.github.com/users/ericvoit/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ericvoit/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ericvoit/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ericvoit/subscriptions",
+      "organizations_url": "https://api.github.com/users/ericvoit/orgs",
+      "repos_url": "https://api.github.com/users/ericvoit/repos",
+      "events_url": "https://api.github.com/users/ericvoit/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ericvoit/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-06-20T15:44:16Z",
+    "updated_at": "2018-06-20T15:44:16Z",
+    "closed_at": null,
+    "author_association": "MEMBER",
+    "body": "Need to determine whether to support:\r\n(1) YANG Notifications\r\n(2) YANG data\r\n(3) Payloads with alternative self-describing contents.\r\n(4) XML contents need not point to any  namespace/schema"
+  }
+
+]
