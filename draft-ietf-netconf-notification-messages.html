@@ -1,0 +1,1237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Notification Message Headers and Bundles</title>
+
+  
+<style type="text/css">/*<![CDATA[*/
+
+body {
+  font: 16px "Helvetica Neue","Open Sans",Helvetica,Calibri,sans-serif;
+  color: #333;
+  font-size-adjust: 0.5;
+  line-height: 24px;
+  margin: 75px auto;
+  max-width: 624px;
+  padding: 0 5px;
+}
+
+.title, .filename, h1, h2, h3, h4, h5 {
+  font: 16px "Roboto Condensed","Helvetica Neue","Open Sans",Helvetica,Calibri,sans-serif;
+  font-size-adjust: 0.5;
+  font-weight: bold;
+  color: #333;
+  line-height: 100%;
+  margin: 0.8em 0 0.3em;
+}
+.title, #rfc\.title h1 { font-size: 32px; }
+h1, section h1, h2, section h2, section h3, nav h2 { font-size: 20px; }
+h3, section h4, h4, section h5 { font-size: 16px; }
+h1 a[href], h2 a[href], h3 a[href], h4 a[href] {
+  color: #333;
+}
+
+table {
+  margin-left: 0em;
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+td {
+  border-top: 1px solid #ddd;
+  vertical-align: top;
+}
+tr:nth-child(2n+1) > td,
+tr:nth-child(2n+1) > th {
+  background-color: #f9f9f9;
+}
+td.reference {
+  max-width: 200px;
+  border-top: none;
+  padding-right: 1em;
+}
+.right {
+  text-align: right;
+}
+
+
+table.header, table#rfc\.headerblock {
+  width: 100%;
+}
+table.header td, table#rfc\.headerblock td {
+  border: none;
+  background-color: transparent;
+  color: black;
+  padding: 0;
+}
+.filename {
+  display: block;
+  color: rgb(119, 119, 119);
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 100%;
+  margin: 10px 0 32px;
+}
+#rfc\.abstract+p, #rfc\.abstract p {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+samp, tt, code, pre {
+  font: 15px Consolas, monospace;
+  font-size-adjust: none;
+}
+pre {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  overflow-x: auto;
+  padding: 5px;
+  margin: 5px;
+}
+.figure, caption {
+  font-style: italic;
+  margin: 0 1.5em;
+  text-align: left;
+}
+
+address {
+  margin: 16px 2px;
+  line-height: 20px;
+}
+.vcard {
+  font-style: normal;
+}
+.vcardline {
+  display: block;
+}
+.vcardline .fn, address b {
+  font-weight: normal;
+}
+.vcardline .hidden {
+  display: none;
+}
+
+dl {
+  margin-left: 1em;
+}
+dl.dl-horizontal: {
+  margin-left: 0;
+}
+dl > dt {
+  float: left;
+  margin-right: 1em;
+}
+dl.nohang > dt {
+  float: none;
+}
+dl > dd {
+  margin-bottom: .5em;
+}
+dl.compact > dd {
+  margin-bottom: 0em;
+}
+dl > dd > dl {
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+ul.empty {
+  list-style-type: none;
+}
+ul.empty li {
+  margin-top: .5em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+}
+hr.noprint {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+a[href] {
+  color: #2a6496;
+}
+a[href]:hover {
+  background-color: #eee;
+}
+
+ol, ul, li, p {
+  padding: 0;
+  margin: 0.5em 0 0.5em 2em;
+}
+li, p {
+  margin-left: 0;
+}
+address {
+  font-style: normal;
+}
+
+ul.toc ul {
+  margin: 0 0 0 2em;
+}
+ul.toc li {
+  list-style: none;
+  margin: 0;
+}
+
+@media screen and (min-width: 924px) {
+  body {
+    padding-right: 350px;
+  }
+  body>ul.toc, body>#rfc\.toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 500px);
+    width: 300px;
+    z-index: 1;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  body>#rfc\.toc {
+    top: 55px;
+  }
+  body>ul.toc {
+    top: 100px;
+  }
+
+  ul.toc {
+    margin: 0 0 0 4px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  ul.toc ul {
+    margin-left: 1.2em;
+  }
+}
+
+.github-fork-ribbon-wrapper {
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  /* "Fork me on GitHub" CSS ribbon based on
+   * https://github.com/simonwhitaker/github-fork-ribbon-css
+   */
+  .github-fork-ribbon {
+    position: absolute;
+    padding: 2px 0;
+    background-color: #a00;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+    font: 700 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    pointer-events: auto;
+
+    top: 38px;
+    right: -45px;
+
+    transform: rotate(45deg);
+  }
+
+  .github-fork-ribbon a[href],
+  .github-fork-ribbon a[href]:hover {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+    width: 190px;
+    line-height: 18px;
+
+    display: inline-block;
+    padding: 2px 0;
+
+    border: 1.5px dotted #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .github-fork-ribbon-wrapper {
+    display: block;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    overflow: hidden;
+    top: 0; right: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .github-fork-ribbon-wrapper {
+    position: fixed;
+  }
+  /*]]>*/</style>
+  <meta name="viewport" content="initial-scale=1.0">
+
+
+  <link href="#rfc.toc" rel="Contents">
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
+<link href="#rfc.section.2" rel="Chapter" title="2 Terminology">
+<link href="#rfc.section.3" rel="Chapter" title="3 Header Objects">
+<link href="#rfc.section.4" rel="Chapter" title="4 Encapsulation of Header Objects in Messages">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 One Notification per Message">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Many Notifications per Message">
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Notification Type in Payload">
+<link href="#rfc.section.5" rel="Chapter" title="5 Configuration of Headers">
+<link href="#rfc.section.6" rel="Chapter" title="6 Discovering Receiver Support">
+<link href="#rfc.section.7" rel="Chapter" title="7 YANG Module">
+<link href="#rfc.section.8" rel="Chapter" title="8 Backwards Compatibility">
+<link href="#rfc.section.9" rel="Chapter" title="9 Security Considerations">
+<link href="#rfc.section.10" rel="Chapter" title="10 Acknowledgments">
+<link href="#rfc.references" rel="Chapter" title="11 References">
+<link href="#rfc.references.1" rel="Chapter" title="11.1 Normative References">
+<link href="#rfc.references.2" rel="Chapter" title="11.2 Informative References">
+<link href="#rfc.appendix.A" rel="Chapter" title="A Changes between revisions">
+<link href="#rfc.appendix.B" rel="Chapter" title="B Issues being worked">
+<link href="#rfc.appendix.C" rel="Chapter" title="C Subscription Specific Headers">
+<link href="#rfc.appendix.D" rel="Chapter" title="D Implications to Existing RFCs">
+<link href="#rfc.appendix.D.1" rel="Chapter" title="D.1 Implications to RFC-7950">
+<link href="#rfc.appendix.D.2" rel="Chapter" title="D.2 Implications to RFC-8040">
+<link href="#rfc.authors" rel="Chapter">
+
+
+  <meta name="generator" content="xml2rfc version 2.9.8 - https://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Voit, E., Bierman, A., Clemm, A., and T. Jenkins" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-netconf-notification-messages-latest" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-10-03" />
+  <meta name="dct.abstract" content="This document defines a new notification message format, using yang-data.  Included are:" />
+  <meta name="description" content="This document defines a new notification message format, using yang-data.  Included are:" />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+<td class="left">NETCONF</td>
+<td class="right">E. Voit</td>
+</tr>
+<tr>
+<td class="left">Internet-Draft</td>
+<td class="right">Cisco Systems</td>
+</tr>
+<tr>
+<td class="left">Intended status: Standards Track</td>
+<td class="right">A. Bierman</td>
+</tr>
+<tr>
+<td class="left">Expires: April 6, 2018</td>
+<td class="right">YumaWorks</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">A. Clemm</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Huawei</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">T. Jenkins</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Cisco Systems</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">October 03, 2017</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Notification Message Headers and Bundles<br />
+  <span class="filename">draft-ietf-netconf-notification-messages-latest</span></p>
+  
+  <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
+<p>This document defines a new notification message format, using yang-data.  Included are:</p>
+<p></p>
+
+<ul>
+<li>a new notification mechanism and encoding to replace the one way operation of RFC-5277</li>
+<li>a set of common, transport agnostic message header objects.</li>
+<li>how to bundle multiple event records into a single notification message.</li>
+<li>how to ensure these new capabilities are only used with capable receivers.</li>
+</ul>
+<h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on April 6, 2018.</p>
+<h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
+<p>Copyright (c) 2017 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a>
+</li>
+<li>2.   <a href="#rfc.section.2">Terminology</a>
+</li>
+<li>3.   <a href="#rfc.section.3">Header Objects</a>
+</li>
+<li>4.   <a href="#rfc.section.4">Encapsulation of Header Objects in Messages</a>
+</li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">One Notification per Message</a>
+</li>
+<li>4.2.   <a href="#rfc.section.4.2">Many Notifications per Message</a>
+</li>
+<li>4.3.   <a href="#rfc.section.4.3">Notification Type in Payload</a>
+</li>
+</ul><li>5.   <a href="#rfc.section.5">Configuration of Headers</a>
+</li>
+<li>6.   <a href="#rfc.section.6">Discovering Receiver Support</a>
+</li>
+<li>7.   <a href="#rfc.section.7">YANG Module</a>
+</li>
+<li>8.   <a href="#rfc.section.8">Backwards Compatibility</a>
+</li>
+<li>9.   <a href="#rfc.section.9">Security Considerations</a>
+</li>
+<li>10.   <a href="#rfc.section.10">Acknowledgments</a>
+</li>
+<li>11.   <a href="#rfc.references">References</a>
+</li>
+<ul><li>11.1.   <a href="#rfc.references.1">Normative References</a>
+</li>
+<li>11.2.   <a href="#rfc.references.2">Informative References</a>
+</li>
+</ul><li>Appendix A.   <a href="#rfc.appendix.A">Changes between revisions</a>
+</li>
+<li>Appendix B.   <a href="#rfc.appendix.B">Issues being worked</a>
+</li>
+<li>Appendix C.   <a href="#rfc.appendix.C">Subscription Specific Headers</a>
+</li>
+<li>Appendix D.   <a href="#rfc.appendix.D">Implications to Existing RFCs</a>
+</li>
+<ul><li>D.1.   <a href="#rfc.appendix.D.1">Implications to RFC-7950</a>
+</li>
+<li>D.2.   <a href="#rfc.appendix.D.2">Implications to RFC-8040</a>
+</li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a>
+</li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1">
+<a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
+</h1>
+<p id="rfc.section.1.p.1">Mechanisms to support subscription to event notifications and yang datastore push are being defined in <a href="#subscribe" class="xref">[subscribe]</a> and <a href="#yang-push" class="xref">[yang-push]</a>. Work on those documents has shown that notifications described in <a href="#RFC7950" class="xref">[RFC7950]</a> section 7.16 could benefit from transport independent headers.  Communicating the following information to receiving applications can be done without explicit linkage to an underlying transport protocol:</p>
+<p></p>
+
+<ul>
+<li>the time information was generated</li>
+<li>the time the information was sent</li>
+<li>a signature to verify authenticity</li>
+<li>the process generating the information</li>
+<li>an originating request correlation</li>
+<li>an ability to bundle information records into one a message</li>
+<li>the ability to check for message loss/reordering</li>
+</ul>
+<p id="rfc.section.1.p.3">The document describes information elements needed for the functions above.  It also provides YANG structures for sending messages containing one or more events and/or update records to a receiver.</p>
+<h1 id="rfc.section.2">
+<a href="#rfc.section.2">2.</a> <a href="#terminology" id="terminology">Terminology</a>
+</h1>
+<p id="rfc.section.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;NOT RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in BCP 14 <a href="#RFC2119" class="xref">[RFC2119]</a> <a href="#RFC8174" class="xref">[RFC8174]</a> when, and only when, they appear in all capitals, as shown here.</p>
+<p id="rfc.section.2.p.2">The definition of notification is in <a href="#RFC7950" class="xref">RFC 7950</a>.  Publisher, receiver, and subscription are defined in <a href="#subscribe" class="xref">[subscribe]</a>.</p>
+<h1 id="rfc.section.3">
+<a href="#rfc.section.3">3.</a> <a href="#header-objects" id="header-objects">Header Objects</a>
+</h1>
+<p id="rfc.section.3.p.1">There are a number of transport independent headers which should have common definition.  These include:</p>
+<p></p>
+
+<ul>
+<li>subscription-id: provides a reference into the reason the publisher believed the receiver wishes to be notified of this specific information.</li>
+<li>notification-time: the time an event, datastore update, or other item is recognized and recorded within the publisher.</li>
+<li>notification-id: Identifies the name of the notification, per the YANG notification statement.  May also provide the name of a yang-data statement (whether transporting other types of messages is in scope is tbd).</li>
+<li>observation-domain-id: identifies the publisher process which discovered and recorded the event notification. (note: look to reuse the domains set up with IPFIX.)</li>
+<li>message-time: the time the message was packaged sent to the transport layer for delivery to the receiver.</li>
+<li>signature: allows an application to sign a message so that a receiver can verify the authenticity of the message.</li>
+<li>message-id: for a specific message generator, this identifies a message which includes one or more event records.</li>
+<li>previous-message-id: the message-id of the message preceding the current one intended for the same receiver.   When used in conjunction with the current message-id, this allows loss/duplication across previous messages to be discovered.  If there was no previous message from a message generator, the reserved id &#8220;0&#8221; must be sent.</li>
+<li>message-generator-id: identifier for the process which created the message.  This allows disambiguation of an information source, such as the identification of different line cards sending the messages.  Used in conjunction with previous-message-id, this can help find drops and duplications when messages are coming from multiple sources on a device.  If there is a message-generator-id in the header, then the previous-message-id MUST be the message-id from the last time that message-generator-id was sent.</li>
+</ul>
+<h1 id="rfc.section.4">
+<a href="#rfc.section.4">4.</a> <a href="#encapsulation-of-header-objects-in-messages" id="encapsulation-of-header-objects-in-messages">Encapsulation of Header Objects in Messages</a>
+</h1>
+<p id="rfc.section.4.p.1">A specific set of well-known objects are of potential use to networking layers prior being interpreted by some receiving application layer process.  By exposing this object information as part of a header, and by using standardized object names, it becomes possible for this object information to be leveraged in transit.</p>
+<p id="rfc.section.4.p.2">The objects defined in the previous section are these well-known header objects.  These objects are identified within a dedicated header subtree which leads off a particular transportable message.  This allows header objects to be easily be decoupled, stripped, and processed separately.</p>
+<p id="rfc.section.4.p.3">There are two types of transportable messages: one format is used when there is one notification being encapsulated, and another format used when there are many notifications being bundled into one message.</p>
+<p id="rfc.section.4.p.4">A receiver which supporting this document MUST be able to handle receipt of either type of message from an publisher.  It is possible that changes between message types can occur without any prior indication.</p>
+<h1 id="rfc.section.4.1">
+<a href="#rfc.section.4.1">4.1.</a> <a href="#one-notification-per-message" id="one-notification-per-message">One Notification per Message</a>
+</h1>
+<p id="rfc.section.4.1.p.1">Below are contents of a message when there is only one notification in an encapsulated and encoded message:</p>
+<pre>
+    yang-data message
+       +-- message-header
+       |  +-- notification-time           yang:date-and-time
+       |  +-- subscription-id*            uint32
+       |  +-- notification-id?            uint32
+       |  +-- observation-domain-id?      string
+       |  +-- module?                     yang-identifier
+       |  +-- notification-type?          notification
+       |  +-- message-id?                 uint32
+       |  +-- message-time?               yang:date-and-time
+       |  +-- previous-message-id?        uint32
+       |  +-- message-generator-id?       string
+       |  +-- signature?                  string
+       +-- receiver-record-contents?
+</pre>
+<p id="rfc.section.4.1.p.2">An actual instance of such a message when encoded in XML might look like:</p>
+<pre>
+  &lt;yang-data message
+    xmlns="urn:ietf:params:xml:ns:yang:ietf-notification-messages:1.0"&gt;
+    &lt;message-header&gt;
+      &lt;notification-time&gt;
+            2017-02-14T00:00:02Z
+      &lt;/notification-time&gt;
+      &lt;subscription-id&gt;
+            823472
+      &lt;/subscription-id&gt;
+      &lt;module&gt;
+            ietf-yang-push
+      &lt;/module&gt;
+      &lt;notification-type&gt;
+            push-change-update
+      &lt;/notification-type&gt;
+      &lt;message-time&gt;
+            2017-02-14T00:00:05Z
+      &lt;/message-time&gt;
+      &lt;message-id&gt;
+            456
+      &lt;/message-id&gt;
+      &lt;previous-message-id&gt;
+            567
+      &lt;/previous-message-id&gt;
+      &lt;signature&gt;
+            lKIo8s03fd23.....
+      &lt;/signature&gt;
+    &lt;/message-header&gt;
+    &lt;push-change-update xmlns=
+        "urn:ietf:params:xml:ns:yang:ietf-yang-push:1.0"&gt;
+      &lt;datastore-changes-xml&gt;
+        &lt;alpha xmlns="http://example.com/sample-data/1.0" &gt;
+          &lt;beta urn:ietf:params:xml:ns:netconf:base:1.0:
+               operation="delete"/&gt;
+        &lt;/alpha&gt;
+      &lt;/datastore-changes-xml&gt;
+    &lt;/push-change-update&gt;
+  &lt;/yang-data&gt;
+</pre>
+<h1 id="rfc.section.4.2">
+<a href="#rfc.section.4.2">4.2.</a> <a href="#many-notifications-per-message" id="many-notifications-per-message">Many Notifications per Message</a>
+</h1>
+<p id="rfc.section.4.2.p.1">In many implementations, it may be inefficient to transport every notification independently.  Instead, scale and processing speed can be improved by placing multiple notifications into one transportable bundle.</p>
+<p id="rfc.section.4.2.p.2">When this is done, one additional header field becomes valuable.  This is the &#8220;notification-count&#8221; which would tally the quantity of records which make up the contents of the bundle.  It is true that the record count can be derived, but early access to this information could change receiver processing.</p>
+<p id="rfc.section.4.2.p.3">The format of a bundle would look as below.  When compared to the unbundled notification, note that the headers have been split so that one set of headers associated with the notification occur once at the beginning of the message, and additional record specific headers which occur before individual records.</p>
+<pre>
+    yang-data bundled-message
+       +-- bundled-message-header
+       |  +-- message-time                yang:date-and-time
+       |  +-- message-id?                 uint32
+       |  +-- previous-message-id?        uint32
+       |  +-- message-generator-id?       string
+       |  +-- signature?                  string
+       |  +-- notification-count?         uint16
+       +-- notifications*
+          +-- notification-header
+          |  +-- notification-time        yang:date-and-time
+          |  +-- subscription-id*         uint32
+          |  +-- notification-id?         uint32
+          |  +-- module?                  yang-identifier
+          |  +-- notification-type?       notification
+          |  +-- observation-domain-id?   string
+          +-- receiver-record-contents?
+</pre>
+<p id="rfc.section.4.2.p.4">An actual instance of a bundled notification might look like:</p>
+<pre>
+  &lt;yang-data bundled-message
+    xmlns="urn:ietf:params:xml:ns:yang:ietf-notification-messages:1.0"&gt;
+    &lt;bundled-message-header&gt;
+      &lt;message-time&gt;
+            2017-02-14T00:00:05Z
+      &lt;/message-time&gt;
+      &lt;message-id&gt;
+            456
+      &lt;/message-id&gt;
+      &lt;previous-message-id&gt;
+            567
+      &lt;/previous-message-id&gt;
+      &lt;signature&gt;
+            lKIo8s03fd23...
+      &lt;/signature&gt;
+      &lt;notification-count&gt;
+            2
+      &lt;/notification-count&gt;
+    &lt;/bundled-message-header&gt;
+    &lt;notifications&gt;
+      &lt;notification&gt;
+        &lt;notification-header&gt;
+          &lt;notification-time&gt;
+              2017-02-14T00:00:02Z
+          &lt;/notification-time&gt;
+          &lt;subscription-id&gt;
+              823472
+          &lt;/subscription-id&gt;
+          &lt;module&gt;
+              ietf-yang-push
+          &lt;/module&gt;
+          &lt;notification-type&gt;
+              push-change-update
+          &lt;/notification-type&gt;
+        &lt;/notification-header&gt;
+        &lt;push-change-update xmlns=
+          "urn:ietf:params:xml:ns:yang:ietf-yang-push:1.0"&gt;
+          &lt;datastore-changes-xml&gt;
+            &lt;alpha xmlns="http://example.com/sample-data/1.0"&gt;
+               &lt;beta urn:ietf:params:xml:ns:netconf:base:1.0:
+                   operation="delete"/&gt;
+            &lt;/alpha&gt;
+          &lt;/datastore-changes-xml&gt;
+        &lt;/push-change-update&gt;
+      &lt;/notification&gt;
+      &lt;notification&gt;
+            ...(record #2)...
+      &lt;/notification&gt;
+    &lt;/notifications&gt;
+  &lt;/yang-data&gt;
+</pre>
+<h1 id="rfc.section.4.3">
+<a href="#rfc.section.4.3">4.3.</a> <a href="#notification-type-in-payload" id="notification-type-in-payload">Notification Type in Payload</a>
+</h1>
+<p id="rfc.section.4.3.p.1">The type of notification transported within a record could be a header.  However the notification name and namespace is the first element in the receiver record contents payload.  As this can be determined by the YANG module containing the notification-stmt as represented within the first part of the encapsulated notification message, this information need not replicated within a header.</p>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> <a href="#configuration-of-headers" id="configuration-of-headers">Configuration of Headers</a>
+</h1>
+<p id="rfc.section.5.p.1">A publisher MUST select the set of headers to use for a particular message.  The two mandatory headers which MUST always be applied to every message are &#8216;message-time&#8217; and &#8216;subscription-id&#8217;</p>
+<p id="rfc.section.5.p.2">Beyond these two mandatory headers, the following are additional sources which can add common headers to a message.</p>
+<p></p>
+
+<ol>
+<li>Publisher wide default headers for all notifications.  These are included if a common header is inserted into &#8216;additional-headers&#8217; shown in the figure below.</li>
+<li>More notification specific headers may also be desired.  If new headers are needed for a specific notification in the YANG model, this can be populated through &#8216;per-notification-headers&#8217;.</li>
+<li>An application process may also identify common headers to use when transporting notifications for a specific subscription.  How these are identified to a publisher is out-of-scope.</li>
+</ol>
+<p id="rfc.section.5.p.4">The set of headers used for any particular message is the superset of headers for the items listed above.</p>
+<p id="rfc.section.5.p.5">The YANG tree showing elements of configuration is depicted in the following figure.</p>
+<pre>
+module: ietf-notification-messages
+    +--rw additional-default-headers {publisher}?
+       +--rw additional-headers*              common-header
+       +--rw notification-specific-default* [module notification]
+          +--rw module                      yang:yang-identifier
+          +--rw notification                notification
+          +--rw per-notification-headers*   common-header
+</pre>
+<p class="figure">Configuration Model structure</p>
+<p id="rfc.section.5.p.6">Of note in this tree is the optional feature of &#8216;publisher&#8217;.  This feature indicates an ability to send notifications.  A publisher supporting this specification MUST also be able to parse any messages received as defined in this document.</p>
+<h1 id="rfc.section.6">
+<a href="#rfc.section.6">6.</a> <a href="#discovering-receiver-support" id="discovering-receiver-support">Discovering Receiver Support</a>
+</h1>
+<p id="rfc.section.6.p.1">We need capability exchange from the receiver to the publisher at transport session initiation to indicate support for this specification.</p>
+<p id="rfc.section.6.p.2">For all types of transport connections, if the receiver indicates support for this specification, then it MAY be used.  In addition, <a href="#RFC5277" class="xref">[RFC5277]</a> one-way notifications MUST NOT be used if the receiver indicates support for this specification to a publisher which also supports it.</p>
+<p id="rfc.section.6.p.3">Where NETCONF  transport is used, advertising this specification&#8217;s namespace during an earlier client capabilities discovery phase MAY be used to indicate support for this specification:</p>
+<pre>
+   &lt;hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"&gt;
+     &lt;capabilities&gt;
+       &lt;capability&gt;
+         urn:ietf:params:xml:ns:yang:ietf-notification-messages:1.0
+       &lt;/capability&gt;
+     &lt;/capabilities&gt;
+     &lt;session-id&gt;4&lt;/session-id&gt;
+   &lt;/hello&gt;
+</pre>
+<p id="rfc.section.6.p.4">NOTE: It is understood that even though it is allowed in <a href="#RFC6241" class="xref">[RFC6241]</a> section 8.1, robust NETCONF client driven capabilities exchange is not something which is common in implementation.  Therefore reviewers are asked to submit alternative proposals to the mailing list.</p>
+<p id="rfc.section.6.p.5">For RESTCONF, a mechanism for capability discovery is TBD.  Proposals are also welcome here.</p>
+<p id="rfc.section.6.p.6">The mechanism described above assumes that a capability discovery phase happens before a subscription is started.  This is not always the case.  As an example, consider HTTP2 configured subscriptions from section 3.1.3 of <a href="#http-push" class="xref">[http-push]</a>, there is no guarantee that a capability exchange has taken place before the updates are pushed. A solution for this could be that a receiver would reply &#8220;ok&#8221; and reply with the client capabilities as part of the POST. (Or just use a different HTTP status code like 202 instead of 200 &#8216;ok&#8217;).  As such a requirement creates a new dependency for <a href="#http-push" class="xref">[http-push]</a> upon this specification, more discussion is required to decide if this is a viable solution.</p>
+<h1 id="rfc.section.7">
+<a href="#rfc.section.7">7.</a> <a href="#yang-module" id="yang-module">YANG Module</a>
+</h1>
+<pre>
+&lt;CODE BEGINS&gt; file "ietf-notification-messages.yang"
+module ietf-notification-messages {
+  yang-version 1.1;
+  namespace
+     "urn:ietf:params:xml:ns:yang:ietf-notification-messages";
+  prefix nm;
+
+  import ietf-yang-types { prefix yang; }
+  import ietf-restconf   { prefix rc;   }
+
+
+  organization "IETF";
+  contact
+    "WG Web:   &lt;http://tools.ietf.org/wg/netconf/&gt;
+     WG List:  &lt;mailto:netconf@ietf.org&gt;
+
+     Editor:   Eric Voit
+               &lt;mailto:evoit@cisco.com&gt;
+
+     Editor:   Alexander Clemm
+               &lt;mailto:ludwig@clemm.org&gt;
+
+     Editor:   Andy Bierman
+               &lt;mailto:andy@yumaworks.com&gt;
+
+     Editor:   Tim Jenkins
+               &lt;mailto:timjenki@cisco.com&gt;";
+
+  description
+    "This module contains conceptual YANG specifications for yang-data
+    messages carrying notifications with well known header objects.";
+
+  revision 2017-10-03 {
+    description
+      "Initial version.";
+
+    reference
+      "draft-ietf-netconf-notification-messages-02";
+  }
+
+ /*
+  * FEATURES
+  */
+
+  feature publisher {
+    description
+      "This feature indicates that support for both publisher and
+      receiver of messages complying to the specification.";
+  }
+
+  /*
+   * IDENTITIES
+   */
+
+   /* Identities for common headers */
+
+  identity common-header {
+    description
+      "A well known header which can be included somewhere within a
+      message.";
+  }
+
+  identity notification-time  {
+    base common-header;
+    description
+      "Header information consisting of the time an originating process
+      created the notification.";
+  }
+
+  identity notification-id {
+    base common-header;
+    description
+      "Header information consisting of an identifier for an instance
+      of a notification egressing a publisher. ";
+  }
+
+  identity subscription-id {
+    base common-header;
+    description
+      "Header information consisting of the identifier of the
+      subscription associated with the notification being
+      encapsulated.";
+  }
+
+  identity observation-domain-id {
+    base common-header;
+    description
+      "Header information identifying the software entity which created
+      the notification (e.g., process id).";
+  }
+
+  identity message-id {
+    base common-header;
+    description
+      "Header information that identifies a message to a specific
+      receiver";
+  }
+
+  identity message-time {
+    base common-header;
+    description
+      "Header information consisting of time the message headers were
+      placed generated prior to being sent to transport";
+  }
+
+  identity previous-message-id {
+    base common-header;
+    description
+      "Header information consisting of a message id previously sent by
+      the publisher to a specific receiver (allows detection of
+      loss/duplication).";
+  }
+
+  identity message-generator-id {
+    base common-header;
+    description
+      "Header information consisting of an identifier for a software
+      entity which created the message (e.g., linecard 1).";
+  }
+
+  identity signature {
+    base common-header;
+    description
+      "Header information consisting of a signature on the contents of
+      a message.  This can be useful for originating applications to
+      verify record contents even when shipping over unsecure
+      transport.";
+  }
+
+  identity notification-count {
+    base common-header;
+    description
+      "Header information consisting of the quantity of notifications in
+      a bundled-message for a specific receiver.";
+  }
+
+  /*
+   * TYPEDEFs
+   */
+
+  typedef common-header {
+    type identityref {
+      base common-header;
+    }
+    description
+      "Type of header object which may be included somewhere within a
+      message.";
+  }
+
+  typedef notification-type {
+    type string {
+      pattern '[a-zA-Z_][a-zA-Z0-9\-_.]*';
+    }
+    description
+      "The name of a notification within a YANG module.";
+    reference
+      "RFC-7950 Section 7.16";
+  }
+
+  /*
+   * GROUPINGS
+   */
+
+  grouping notification-and-module {
+    description
+      "A location of a notification within a yang model.";
+    leaf module {
+      type yang:yang-identifier;
+      description
+        "Name of the YANG module supported by the publisher.";
+    }
+    leaf notification {
+      type notification-type;
+       description
+         "The name of a notification within a YANG module.";
+    }
+  }
+
+  grouping message-header {
+    description
+      "Header information included with a message.";
+    leaf message-id {
+      type uint32;
+      description
+        "Unique id for a message going to a receiver.";
+    }
+    leaf message-time {
+      type yang:date-and-time;
+      description
+        "time the message was generated prior to being sent to
+        transport.";
+    }
+    leaf previous-message-id {
+      type uint32;
+      description
+        "message id previously sent by publisher to a specific
+        receiver (allows detection of loss/duplication).";
+    }
+    leaf message-generator-id {
+      type string;
+      description
+        "Software entity which created the message (e.g., linecard 1).";
+    }
+    leaf signature {
+      type string;
+      description
+        "Any originator signing of the contents of a message.  This can
+        be useful for originating applications to verify record contents
+        even when shipping over unsecure transport.";
+    }
+  }
+
+  grouping notification-header {
+    description
+      "Common informational objects which might help a receiver
+      interpret the meaning, details, or importance of a notification.";
+    leaf notification-time {
+      type yang:date-and-time;
+      mandatory true;
+      description
+        "Time the system recognized the occurrence of an event.";
+    }
+    leaf-list subscription-id {
+      type uint32;
+      description
+        "Id of the subscription which led to the notification being
+        generated.";
+    }
+    leaf notification-id {
+      type uint32;
+      description
+        "Identifier for the notification record.";
+    }
+    leaf observation-domain-id {
+      type string;
+      description
+        "Software entity which created the notification record (e.g.,
+        process id).";
+    }
+    uses notification-and-module;
+  }
+
+  /*
+   * YANG-DATA messages for receivers
+   */
+
+  rc:yang-data message {
+    container message {
+      presence
+        "Indicates attempt to communicate notifications to a receiver.";
+      description
+        "Message to a receiver containing one notification";
+      container message-header {
+        description
+          "delineates header info from content for easy parsing.";
+        uses notification-header;
+        uses message-header;
+      }
+      anydata notification-contents {
+        description
+          "Encapsultates objects following YANG's notification-stmt
+          grammar of RFC-7950 section 14.  Within are the notified
+          objects the publisher actually generated in order to be
+          passed to a receiver after all filtering has completed.";
+      }
+    }
+  }
+
+  rc:yang-data bundled-message {
+    container bundled-message {
+      presence
+        "Indicates attempt to communicate notifications to a receiver.";
+      description
+        "Message to a receiver containing many bundled notifications";
+      container bundled-message-header {
+        description
+          "Header info for messages.";
+        uses message-header {
+          refine message-time {
+            mandatory true;
+          }
+        }
+        leaf notification-count {
+            type uint16;
+            description
+                "Quantity of notification records in a bundled-message
+                specific receiver.";
+        }
+      }
+      list notifications {
+        description
+          "Set of notifications to a receiver.";
+        container notification-header {
+          description
+            "Header info for each bundled notification.";
+          uses notification-header;
+        }
+        anydata notification-contents {
+          description
+            "Encapsultates objects following YANG's notification-stmt
+            grammar of RFC-7950 section 14.  Within are the notified
+            objects the publisher actually generated in order to be
+            passed to a receiver after all filtering has completed.";
+        }
+      }
+    }
+  }
+
+  /*
+   * DATA-NODES
+   */
+
+  container additional-default-headers {
+    if-feature "publisher";
+    description
+      "This container maintains a list of which additional notifications
+      should use which common headers if the receiver supports this
+      specification.  The name starts with additional because there are
+      some mandatory common headers not listed in the container.  These
+      headers are (1) message-time and (2) subscription-id.";
+    leaf-list additional-headers {
+      type common-header;
+      description
+        "This list contains the additional default headers which are to
+        be applied to each message from this publisher.";
+    }
+    list notification-specific-default {
+      key "module notification";
+      description
+        "For any included notification, this list provides additional
+        common headers.";
+      uses notification-and-module;
+      leaf-list per-notification-headers {
+         type common-header;
+         description
+           "The set of additional default headers for a specific
+           notification.";
+      }
+    }
+  }
+}
+&lt;CODE ENDS&gt;
+</pre>
+<h1 id="rfc.section.8">
+<a href="#rfc.section.8">8.</a> <a href="#backwards-compatibility" id="backwards-compatibility">Backwards Compatibility</a>
+</h1>
+<p id="rfc.section.8.p.1">With this specification, there is no change to YANG&#8217;s &#8216;notification&#8217; statement</p>
+<p id="rfc.section.8.p.2">Legacy clients are unaffected, and existing users of <a href="#RFC5277" class="xref">[RFC5277]</a>, <a href="#RFC7950" class="xref">[RFC7950]</a>, and <a href="#RFC8040" class="xref">[RFC8040]</a> are free to use current behaviors until all involved device support this specification.</p>
+<h1 id="rfc.section.9">
+<a href="#rfc.section.9">9.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a>
+</h1>
+<p id="rfc.section.9.p.1">Certain headers might be computationally complex for a publisher to deliver.  Signatures or encryption are two examples of this.  It MUST be possible to suspend or terminate a subscription due to lack of resources based on this reason.</p>
+<p id="rfc.section.9.p.2">Decisions on whether to bundle or not to a receiver are fully under the purview of the Publisher.  A receiver could slow delivery to existing subscriptions by creating new ones.  (Which would result in the publisher going into a bundling mode.)</p>
+<h1 id="rfc.section.10">
+<a href="#rfc.section.10">10.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a>
+</h1>
+<p id="rfc.section.10.p.1">For their valuable comments, discussions, and feedback, we wish to acknowledge Martin Bjorklund, Einar Nilsen-Nygaard, and Kent Watsen.</p>
+<h1 id="rfc.references">
+<a href="#rfc.references">11.</a> References</h1>
+<h1 id="rfc.references.1">
+<a href="#rfc.references.1">11.1.</a> Normative References</h1>
+<table><tbody>
+<tr>
+<td class="reference"><b id="RFC2119">[RFC2119]</b></td>
+<td class="top">
+<a>Bradner, S.</a>, "<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5277">[RFC5277]</b></td>
+<td class="top">
+<a>Chisholm, S.</a> and <a>H. Trevino</a>, "<a href="https://tools.ietf.org/html/rfc5277">NETCONF Event Notifications</a>", RFC 5277, DOI 10.17487/RFC5277, July 2008.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8174">[RFC8174]</b></td>
+<td class="top">
+<a>Leiba, B.</a>, "<a href="https://tools.ietf.org/html/rfc8174">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</a>", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017.</td>
+</tr>
+<tr>
+<td class="reference"><b id="subscribe">[subscribe]</b></td>
+<td class="top">
+<a>Voit, E.</a>, <a>Clemm, A.</a>, <a>Prieto, A.</a>, <a>Nilsen-Nygaard, E.</a> and <a>A. Tripathy</a>, "<a href="https://tools.ietf.org/html/draft-ietf-netconf-subscribed-notifications-13">Customized Subscriptions to a Publisher's Event Streams</a>", Internet-Draft draft-ietf-netconf-subscribed-notifications-13, June 2018.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.references.2">
+<a href="#rfc.references.2">11.2.</a> Informative References</h1>
+<table><tbody>
+<tr>
+<td class="reference"><b id="http-push">[http-push]</b></td>
+<td class="top">
+<a>Voit, E.</a>, <a>Rahman, R.</a>, <a>Nilsen-Nygaard, E.</a>, <a>Clemm, A.</a> and <a>A. Bierman</a>, "<a href="https://tools.ietf.org/html/draft-ietf-netconf-restconf-notif-06">RESTCONF and HTTP Transport for Event Notifications</a>", Internet-Draft draft-ietf-netconf-restconf-notif-06, June 2018.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC6241">[RFC6241]</b></td>
+<td class="top">
+<a>Enns, R.</a>, <a>Bjorklund, M.</a>, <a>Schoenwaelder, J.</a> and <a>A. Bierman</a>, "<a href="https://tools.ietf.org/html/rfc6241">Network Configuration Protocol (NETCONF)</a>", RFC 6241, DOI 10.17487/RFC6241, June 2011.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC7950">[RFC7950]</b></td>
+<td class="top">
+<a>Bjorklund, M.</a>, "<a href="https://tools.ietf.org/html/rfc7950">The YANG 1.1 Data Modeling Language</a>", RFC 7950, DOI 10.17487/RFC7950, August 2016.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8040">[RFC8040]</b></td>
+<td class="top">
+<a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="https://tools.ietf.org/html/rfc8040">RESTCONF Protocol</a>", RFC 8040, DOI 10.17487/RFC8040, January 2017.</td>
+</tr>
+<tr>
+<td class="reference"><b id="yang-push">[yang-push]</b></td>
+<td class="top">
+<a>Clemm, A.</a>, <a>Voit, E.</a>, <a>Prieto, A.</a>, <a>Tripathy, A.</a>, <a>Nilsen-Nygaard, E.</a>, <a>Bierman, A.</a> and <a>B. Lengyel</a>, "<a href="https://tools.ietf.org/html/draft-ietf-netconf-yang-push-16">YANG Datastore Subscription</a>", Internet-Draft draft-ietf-netconf-yang-push-16, May 2018.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.appendix.A">
+<a href="#rfc.appendix.A">Appendix A.</a> <a href="#changes-between-revisions" id="changes-between-revisions">Changes between revisions</a>
+</h1>
+<p id="rfc.section.A.p.1">(To be removed by RFC editor prior to publication)</p>
+<p id="rfc.section.A.p.2">v01 - v02</p>
+<p></p>
+
+<ul>
+<li>Fixed the yang-data encapsulation container issue</li>
+<li>Updated object definitions to point to RFC-7950 definitions</li>
+<li>Added headers for module and notification-type.</li>
+</ul>
+<p id="rfc.section.A.p.4">v00 - v01</p>
+<p></p>
+
+<ul>
+<li>Alternative to 5277 one-way notification added</li>
+<li>Storage of default headers by notification type</li>
+<li>Backwards compatibility</li>
+<li>Capability discovery</li>
+<li>Move to yang-data</li>
+<li>Removed dscp and record-type as common headers.  (Record type can be determined by the namespace of the record contents. Dscp is useful where applications need internal communications within a Publisher, but it is unclear as to whether this use case need be exposed to a receiver.</li>
+</ul>
+<h1 id="rfc.appendix.B">
+<a href="#rfc.appendix.B">Appendix B.</a> <a href="#issues-being-worked" id="issues-being-worked">Issues being worked</a>
+</h1>
+<p id="rfc.section.B.p.1">(To be removed by RFC editor prior to publication)</p>
+<p id="rfc.section.B.p.2">Is this capability just for notifications, or is it for any yang-data element too?</p>
+<p id="rfc.section.B.p.3">There is redundancy with module and notification in the headers, along with the notification name and the namespace as the first element of the pushed content.  Do we remove one of them?</p>
+<p id="rfc.section.B.p.4">A complete JSON document is supposed to be sent as part of Media Type &#8220;application/yang-data+json&#8221;.  As we are sending separate notifications after eachother, we need to choose whether we start with some extra encapsulation for the very first message pushed, or if we want a new Media Type for streaming updates.</p>
+<p id="rfc.section.B.p.5">Improved discovery mechanisms for NETCONF</p>
+<p id="rfc.section.B.p.6">Do we want to have additional headers for a specific notification?  Right now this is included, but it could be excluded.</p>
+<p id="rfc.section.B.p.7">Should we defer support for HTTP2 configured subscriptions until this draft is available?  Without capabilities exchange, it might just be easier to wait.  In addition, JSON encoding still needs a notification type which is not exising or represented in referenceable in existing yang-models.</p>
+<p id="rfc.section.B.p.8">Need to ensure the proper references exist to a notification definition driven by RFC-7950 which is acceptable to other eventual users of this specification.</p>
+<p id="rfc.section.B.p.9">We need to link to Andy Bierman&#8217;s anydata extensibility draft.</p>
+<h1 id="rfc.appendix.C">
+<a href="#rfc.appendix.C">Appendix C.</a> <a href="#subscription-specific-headers" id="subscription-specific-headers">Subscription Specific Headers</a>
+</h1>
+<p id="rfc.section.C.p.1">(To be removed by RFC editor prior to publication)</p>
+<p id="rfc.section.C.p.2">This section discusses a future functional addition which could leverage this draft.  It is included for informational purposes only.</p>
+<p id="rfc.section.C.p.3">A dynamic subscriber might want to mandate that certain headers be used for push updates from a publisher.  Some examples of this include a subscriber requesting to:</p>
+<p></p>
+
+<ul>
+<li>establish this subscription, but just if transport messages containing the pushed data will be encrypted,</li>
+<li>establish this subscription, but only if you can attest to the information being delivered in requested notification records, or</li>
+<li>provide a sequence-id for all messages to this receiver (in order to check for loss).</li>
+</ul>
+<p id="rfc.section.C.p.5">Providing this type of functionality would necessitate a new revision of the <a href="#subscribe" class="xref">[subscribe]</a>&#8217;s RPCs and state change notifications.  Subscription specific header information would overwrite the default headers identified in this document.</p>
+<h1 id="rfc.appendix.D">
+<a href="#rfc.appendix.D">Appendix D.</a> <a href="#implications-to-existing-rfcs" id="implications-to-existing-rfcs">Implications to Existing RFCs</a>
+</h1>
+<p id="rfc.section.D.p.1">(To be removed by RFC editor prior to publication)</p>
+<p id="rfc.section.D.p.2">YANG one-way exchanges currently use a non-extensible header and encoding defined in section 4 of RFC-5277.  These RFCs MUST be updated to enable this draft.  These RFCs SHOULD be updated to provide examples</p>
+<h1 id="rfc.appendix.D.1">
+<a href="#rfc.appendix.D.1">D.1.</a> <a href="#implications-to-rfc-7950" id="implications-to-rfc-7950">Implications to RFC-7950</a>
+</h1>
+<p id="rfc.section.D.1.p.1">Sections which expose netconf:capability:notification:1.0 are 4.2.10</p>
+<p id="rfc.section.D.1.p.2">Sections which provide examples using netconf:notification:1.0 are 7.10.4, 7.16.3, and 9.9.6</p>
+<h1 id="rfc.appendix.D.2">
+<a href="#rfc.appendix.D.2">D.2.</a> <a href="#implications-to-rfc-8040" id="implications-to-rfc-8040">Implications to RFC-8040</a>
+</h1>
+<p id="rfc.section.D.2.p.1">Section 6.4 demands use of RFC-5277&#8217;s netconf:notification:1.0, and later in the section provides an example.</p>
+<h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Eric Voit</span> 
+	  <span class="n hidden">
+		<span class="family-name">Voit</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Cisco Systems</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:evoit@cisco.com">evoit@cisco.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Andy Bierman</span> 
+	  <span class="n hidden">
+		<span class="family-name">Bierman</span>
+	  </span>
+	</span>
+	<span class="org vcardline">YumaWorks</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:andy@yumaworks.com">andy@yumaworks.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Alexander Clemm</span> 
+	  <span class="n hidden">
+		<span class="family-name">Clemm</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Huawei</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:ludwig@clemm.org">ludwig@clemm.org</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Tim Jenkins</span> 
+	  <span class="n hidden">
+		<span class="family-name">Jenkins</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Cisco Systems</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:timjenki@cisco.com">timjenki@cisco.com</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
